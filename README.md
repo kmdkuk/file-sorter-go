@@ -1,5 +1,5 @@
-# file-sorter-go
-![CI](https://github.com/kmdkuk/file-sorter-go/workflows/CI/badge.svg)
+# gorter
+![CI](https://github.com/kmdkuk/gorter/workflows/CI/badge.svg)
 
 テキストファイルの行をいい感じにソートしてくれるプログラムが書きたくなった．
 
@@ -34,7 +34,7 @@ docs/
 ### after
 
 ```shell script
-$ file-soreter -i example.txt
+$ gorter -i example.txt
 .bundle/
 .circleci
 .circleci/

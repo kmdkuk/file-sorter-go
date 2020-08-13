@@ -1,6 +1,7 @@
 package option
 
 var Opt Options
+
 const STDIN = "stdin"
 const STDOUT = "stdout"
 
@@ -10,12 +11,12 @@ func init() {
 
 func NewOption() Options {
 	return Options{
-		InputFile: STDIN,
+		InputFile:  STDIN,
 		OutputFile: STDOUT,
 	}
 }
 
 type Options struct {
-	InputFile	string
+	InputFile  string
 	OutputFile string
 }

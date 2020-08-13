@@ -1,4 +1,4 @@
-module github.com/kmdkuk/file-sorter-go
+module github.com/kmdkuk/gorter
 
 go 1.14
 

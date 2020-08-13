@@ -1,13 +1,11 @@
 package main
 
 import (
-	"github.com/kmdkuk/file-sorter-go/cmd"
-	"github.com/kmdkuk/file-sorter-go/log"
-	"github.com/spiegel-im-spiegel/logf"
+	"github.com/kmdkuk/gorter/cmd"
+	"github.com/kmdkuk/gorter/log"
 )
 
-func main(){
-	log.SetMinLevel(logf.ERROR)
+func main() {
 	log.Debug("start cmd")
 	cmd.Execute()
 	log.Debug("finish cmd")
