@@ -10,8 +10,6 @@ import (
 	"sort"
 )
 
-var defaultOption = option.NewOption()
-
 func init(){
 	rootCmd.Flags().StringVarP(&option.Opt.InputFile, "input", "i", option.Opt.InputFile,"sort target file")
 	rootCmd.Flags().StringVarP(&option.Opt.OutputFile, "output", "o", option.Opt.OutputFile, "sorted file")
@@ -34,7 +32,7 @@ var rootCmd = &cobra.Command{
 	Run: run,
 }
 
-func run(cmd *cobra.Command, args []string){
+func run(cmd *cobra.Command, _ []string){
 	log.Debug("option.Opt: ",option.Opt)
 	log.Debug("InputFile: ", option.Opt.InputFile)
 	log.Debug("OutputFile: ", option.Opt.OutputFile)
@@ -65,7 +63,11 @@ func run(cmd *cobra.Command, args []string){
 	}
 	defer outputFile.Close()
 
-	writeText(outputFile, text)
+	err = writeText(outputFile, text)
+	if err != nil {
+		log.Error("error: ", err)
+		os.Exit(1)
+	}
 }
 
 func open(filename string) (*os.File, error){
@@ -84,26 +86,33 @@ func open(filename string) (*os.File, error){
 
 func read(file *os.File) ([]string, error) {
 	scanner := bufio.NewScanner(file)
-	output := make([]string, 1, 1)
+	output := make([]string, 1)
 	for line:=0; scanner.Scan();line++ {
 		if len(output) < line + 1 {
 			diff := line - len(output)
-			output = append(output, make([]string, diff + 1, diff + 1)...)
+			output = append(output, make([]string, diff + 1)...)
 		}
 		output[line] = scanner.Text()
 	}
 	return output, nil
 }
 
-func writeText(output io.Writer, text []string){
+func writeText(output io.Writer, text []string) error{
 	for line:=0; line < len(text);line++ {
-		output.Write([]byte(text[line]+"\n"))
+		_, err := output.Write([]byte(text[line]+"\n"))
+		if err != nil{
+			return err
+		}
 	}
+	return nil
 }
 
 func makeCopyOriginal(file *os.File) error {
-	file.Seek(0, io.SeekStart)
-	dst, err := os.Create(file.Name()+".orginal")
+	_, err := file.Seek(0, io.SeekStart)
+	if err != nil{
+		return err
+	}
+	dst, err := os.Create(file.Name()+".original")
 	if err != nil {
 		return err
 	}
