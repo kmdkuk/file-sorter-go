@@ -9,9 +9,9 @@ builds:
     binary: gorter
     ldflags:
       - -s -w
-      - -X version.Version={{.Version}}
-      - -X version.Revision={{.ShortCommit}}
-      - -X version.BuildDate={{.Date}}
+      - -X github.com/kmdkuk/gorter/version.Version={{.Version}}
+      - -X github.com/kmdkuk/gorter/version.Revision={{.ShortCommit}}
+      - -X github.com/kmdkuk/gorter/version.BuildDate={{.Date}}
     goos:
       - windows
       - darwin
