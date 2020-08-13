@@ -12,6 +12,13 @@ builds:
       - -X version.Version={{.Version}}
       - -X version.Revision={{.ShortCommit}}
       - -X version.BuildDate={{.Date}}
+    goos:
+      - windows
+      - darwin
+      - linux
+    goarch:
+      - 386
+      - amd64
     env:
       - CGO_ENABLED=0
 archives:
