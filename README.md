@@ -1,4 +1,5 @@
 # file-sorter-go
+![CI](https://github.com/kmdkuk/file-sorter-go/workflows/CI/badge.svg)
 
 テキストファイルの行をいい感じにソートしてくれるプログラムが書きたくなった．
 
