@@ -7,8 +7,9 @@ import (
 )
 
 var (
-	Version = "unset"
+	Version = "DEV"
 	Revision = "unset"
+	BuildDate = ""
 )
 
 func main(){
