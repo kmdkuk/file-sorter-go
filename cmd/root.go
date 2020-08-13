@@ -2,8 +2,8 @@ package cmd
 
 import (
 	"bufio"
-	"github.com/kmdkuk/file-sorter-go/cmd/option"
-	"github.com/kmdkuk/file-sorter-go/log"
+	"github.com/kmdkuk/gorter/cmd/option"
+	"github.com/kmdkuk/gorter/log"
 	"github.com/spf13/cobra"
 	"io"
 	"os"
@@ -24,7 +24,7 @@ func Execute(){
 }
 
 var rootCmd = &cobra.Command{
-	Use: "file-sorter",
+	Use: "gorter",
 	Short: "This sorts the lines in the file.",
 	Long: "This sorts the lines in the file.",
 	SilenceErrors: true,

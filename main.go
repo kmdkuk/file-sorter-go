@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/kmdkuk/file-sorter-go/cmd"
-	"github.com/kmdkuk/file-sorter-go/log"
+	"github.com/kmdkuk/gorter/cmd"
+	"github.com/kmdkuk/gorter/log"
 	"github.com/spiegel-im-spiegel/logf"
 )
 
