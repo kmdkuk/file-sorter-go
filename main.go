@@ -6,6 +6,11 @@ import (
 	"github.com/spiegel-im-spiegel/logf"
 )
 
+var (
+	Version = "unset"
+	Revision = "unset"
+)
+
 func main(){
 	log.SetMinLevel(logf.ERROR)
 	log.Debug("start cmd")
