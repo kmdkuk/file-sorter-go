@@ -9,9 +9,16 @@ builds:
     binary: gorter
     ldflags:
       - -s -w
-      - -X main.Version={{.Version}}
-      - -X main.Revision={{.ShortCommit}}
-      - -X main.BuildDate={{.Date}}
+      - -X version.Version={{.Version}}
+      - -X version.Revision={{.ShortCommit}}
+      - -X version.BuildDate={{.Date}}
+    goos:
+      - windows
+      - darwin
+      - linux
+    goarch:
+      - 386
+      - amd64
     env:
       - CGO_ENABLED=0
 archives:
